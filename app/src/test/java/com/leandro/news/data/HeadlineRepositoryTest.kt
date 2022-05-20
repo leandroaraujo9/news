@@ -18,6 +18,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Run test on axiosDebug
+ * BuildConfig.SOURCE = "axios"
+ */
 @ExperimentalCoroutinesApi
 class HeadlineRepositoryTest {
 
@@ -47,7 +51,7 @@ class HeadlineRepositoryTest {
     }
 
     @Test
-    fun  `should make a request with default source and return success`() = runTest {
+    fun  `should make a request with default source axios and return success`() = runTest {
         server.enqueue(MockResponse().setBody(body))
         val api = providesApi()
 
@@ -80,7 +84,7 @@ class HeadlineRepositoryTest {
         val request = server.takeRequest(1, TimeUnit.MILLISECONDS)
         advanceUntilIdle()
 
-        assertThat(request?.path).isEqualTo("/top-headlines?sources=axios")
+        assertThat(request?.path).isEqualTo("/top-headlines?sources=bbc-news")
         assertThat(request?.method).isEqualTo("GET")
         assertThat(success.data).isNotEmpty()
     }
@@ -92,8 +96,8 @@ class HeadlineRepositoryTest {
         headlineRepository = HeadlineRepositoryImpl(api)
 
         lateinit var error : Resource<List<Article>>
-        val source = "bbc-news"
-        headlineRepository.getTopHeadlines(source).take(2).collect {
+
+        headlineRepository.getTopHeadlines().take(2).collect {
             error = it
         }
 
