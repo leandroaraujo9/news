@@ -5,6 +5,18 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+/*
+Create a file "constants.properties" in root folder for the api key and base url
+to avoid upload personal API KEY to the public repository.
+
+EX:
+API_KEY="xxxxxxxxxxxxx9399539593"
+BASE_URL="https://newsapi.org/v2/"
+ */
+def constantsPropertiesFile = rootProject.file("constants.properties")
+def properties = new Properties()
+properties.load(new FileInputStream(constantsPropertiesFile))
+
 android {
     compileSdk 32
 
@@ -14,6 +26,9 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "API_KEY", properties['API_KEY'])
+        buildConfigField("String", "BASE_URL", properties['BASE_URL'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -62,16 +77,18 @@ android {
 
 dependencies {
 
+    // Kotlin
     implementation 'androidx.core:core-ktx:1.7.0'
+
+    // Compose UI
     implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
-
-    // Compose
+    
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.activity:activity-compose:1.6.0-alpha03"
 
     def nav_version = "2.4.2"

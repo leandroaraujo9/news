@@ -12,8 +12,9 @@ import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class HeadlineRepositoryImpl(
+class HeadlineRepositoryImpl @Inject constructor(
     private val api: HeadlineApi,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : HeadlineRepository {
