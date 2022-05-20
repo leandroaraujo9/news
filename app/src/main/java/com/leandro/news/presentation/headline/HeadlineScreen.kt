@@ -14,6 +14,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.leandro.news.ui.navigation.Screen
 
 @Composable
 fun HeadlineScreen(
@@ -77,7 +78,14 @@ fun HeadlineScreen(
                             .requiredHeight(200.dp)
                             .padding(top = 10.dp, bottom = 10.dp),
                         article = article
-                    )
+                    ) { articleJson ->
+                        navController.navigate(
+                            Screen.HeadlineDetail.route.replace(
+                                "{article}",
+                                articleJson
+                            )
+                        )
+                    }
                 }
             }
         }

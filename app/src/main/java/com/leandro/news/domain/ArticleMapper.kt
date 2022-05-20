@@ -11,3 +11,11 @@ inline fun <reified T> String.toObject() : T? {
     val jsonAdapter = moshi.adapter(T::class.java).lenient()
     return jsonAdapter.fromJson(this.replace("\$slash\$", "/"))
 }
+
+inline fun <reified T> T.toJson() : String? {
+    val moshi = Moshi.Builder()
+        .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
+        .build()
+    val jsonAdapter = moshi.adapter(T::class.java).lenient()
+    return jsonAdapter.toJson(this).replace("/", "\$slash\$")
+}
