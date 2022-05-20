@@ -87,6 +87,7 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
     
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     implementation "androidx.activity:activity-compose:1.6.0-alpha03"
@@ -111,6 +112,9 @@ dependencies {
     def okhttp_version = '4.9.1'
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    // Moshi Adapters
+    implementation "com.squareup.moshi:moshi-adapters:1.5.0"
 
     // Glide
     def glide_version = '4.13.0'

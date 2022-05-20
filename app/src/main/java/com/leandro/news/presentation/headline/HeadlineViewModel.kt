@@ -24,6 +24,9 @@ class HeadlineViewModel @Inject constructor(
             repository.getTopHeadlines().collectLatest { response ->
                 when(response) {
                     is Resource.Loading -> {
+                        if(!response.isLoading){
+                            _uiState.value = uiState.value.copy(isRefreshing = false)
+                        }
                         _uiState.value = uiState.value.copy(isLoading = response.isLoading)
                     }
                     is Resource.Error -> {
@@ -35,6 +38,15 @@ class HeadlineViewModel @Inject constructor(
                         }
                     }
                 }
+            }
+        }
+    }
+
+    fun onEvent(event: HeadlineEvent) {
+        when(event){
+            is HeadlineEvent.Refresh -> {
+                _uiState.value = uiState.value.copy(isRefreshing = true)
+                getHeadline()
             }
         }
     }
