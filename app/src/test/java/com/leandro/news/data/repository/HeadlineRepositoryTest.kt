@@ -1,9 +1,8 @@
-package com.leandro.news.data
+package com.leandro.news.data.repository
 
 import com.google.common.truth.Truth.assertThat
 import com.leandro.news.base.Resource
 import com.leandro.news.data.remote.HeadlineApi
-import com.leandro.news.data.repository.HeadlineRepositoryImpl
 import com.leandro.news.domain.model.Article
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
