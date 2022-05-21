@@ -30,7 +30,7 @@ android {
         buildConfigField("String", "API_KEY", properties['API_KEY'])
         buildConfigField("String", "BASE_URL", properties['BASE_URL'])
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.leandro.news.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
