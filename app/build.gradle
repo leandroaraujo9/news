@@ -80,20 +80,18 @@ dependencies {
     // Kotlin
     implementation 'androidx.core:core-ktx:1.7.0'
 
-    // Compose UI
+    // UI / Compose
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
-    
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
-    implementation "androidx.activity:activity-compose:1.6.0-alpha03"
+    implementation "androidx.navigation:navigation-compose:2.4.2"
 
-    def nav_version = "2.4.2"
-    implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "androidx.activity:activity-compose:1.6.0-alpha03"
 
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$dagger_hilt"
@@ -119,12 +117,16 @@ dependencies {
     // Image Library
     implementation "io.coil-kt:coil-compose:2.0.0-rc01"
 
-    //Tests
+    // Tests
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     testImplementation "com.google.truth:truth:1.1.3"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
     testImplementation "io.mockk:mockk:1.11.0"
+
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.37'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.40.5'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.2.0-beta01"
     debugImplementation "androidx.test:core:1.4.0"
