@@ -59,42 +59,42 @@ class HeadlineDetailScreenTest {
      */
     @Test
     fun image_isNotVisible() {
-        //composeTestRule.onNodeWithTag(HeadlineDetailTestTags.IMAGE).assertIsNotDisplayed()
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.IMAGE).assertIsNotDisplayed()
     }
-//
-//    @Test
-//    fun author_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.AUTHOR_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithText("BBC NEWS").assertExists()
-//    }
-//
-//    @Test
-//    fun date_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DATE_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DATE_TEXT).assertTextContains("2022 - 20:05h", substring = true)
-//    }
-//
-//    @Test
-//    fun title_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.TITLE_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithText("Title 1").assertExists()
-//    }
-//
-//    @Test
-//    fun description_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DESCRIPTION_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithText("Description 1").assertExists()
-//    }
-//
-//    @Test
-//    fun content_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.CONTENT_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithText("Content 1").assertExists()
-//    }
-//
-//    @Test
-//    fun readMode_isVisible() {
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.READ_MORE_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.READ_MORE_TEXT).assertTextContains("Click here to read more")
-//    }
+
+    @Test
+    fun author_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.AUTHOR_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText("BBC NEWS").assertExists()
+    }
+
+    @Test
+    fun date_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DATE_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DATE_TEXT).assertTextContains("2022 - 20:05h", substring = true)
+    }
+
+    @Test
+    fun title_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.TITLE_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText("Title 1").assertExists()
+    }
+
+    @Test
+    fun description_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.DESCRIPTION_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText("Description 1").assertExists()
+    }
+
+    @Test
+    fun content_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.CONTENT_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText("Content 1").assertExists()
+    }
+
+    @Test
+    fun readMode_isVisible() {
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.READ_MORE_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(HeadlineDetailTestTags.READ_MORE_TEXT).assertTextContains("Click here to read more")
+    }
 }
